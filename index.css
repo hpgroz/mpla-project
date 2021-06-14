@@ -1,0 +1,9 @@
+#game-board{
+    border: 1px solid black;
+
+}
+
+canvas {
+    background-image: url("");
+    background-size: cover;
+}

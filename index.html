@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="./index.css"/>   
     <title>Document</title>
-    <link rel="stylesheet" href="../mplastyle.css">
     <script src="index.js" defer></script>
+    <script src="player.js" defer></script>
+    <script src="game.js" defer ></script>
+    <script src=""defer></script>
 </head>
 <body>
-    <canvas id="game-board" width="700" height="700" >
-        <style>
-            div {
-              background-image: url(../../../May_21/Module1_week2/Day_4/lab/lab_solutions/lab-canvas-race-car/images/road.png);
-            }
-            </style>
-    </canvas>
+    <div class="game-intro">
+        <img src="" alt="" class="logo-img"/>
+        <br/>
+        <button id="start-button">StartGame</button>
+        <p>Use the left,right,up, down arrow or A, D, W, S to control the car!</p>
+        <div id ="game-board">
+          <canvas id="canvas" width="1200" height="550"></canvas>
+        </div>
+        <div id="scoreDiv">Score:<span id="score">0</span></div>
+    </div>
+
 </body>
 </html>
