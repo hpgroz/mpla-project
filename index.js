@@ -79,34 +79,38 @@ function updateCanvas() {
       currentGame.obstacles.splice(index, 1);
     }
   });
-    if (!currentGame.gameOver) {
-    currentGame.animationId = requestAnimationFrame(updateCanvas);
-  }
+
   //Coins
   currentGame.coinsFrequency++;
+  
   if (currentGame.coinsFrequency % 100 === 1) {
-    const randomCoinsX = Math.floor(Math.random() * 1200);
+    const randomCoinsX = Math.floor(Math.random() * 1100);
     const randomCoinsY = 0;
     const randomCoinsWidth = Math.floor(Math.random() * 50) + 20;
     const randomCoinsHeight = Math.floor(Math.random() * 50) + 20;
     
     
-    const newCoins = new Coins(
+    const newCoin = new Coin(
       randomCoinsX,
       randomCoinsY,
       50,
       50
       );
       
-      currentGame.coins.push(newCoins);
+      currentGame.coins.push(newCoin);
+      console.log(currentGame.coins)
     }
     
     
-    currentGame.coins.forEach((coins, index) =>{
-      coins.y += 1;
-      coins.draw();
+    currentGame.coins.forEach((coin, index) =>{
+      coin.y += 1;
+      coin.draw();
       
     })
+
+    if (!currentGame.gameOver) {
+      currentGame.animationId = requestAnimationFrame(updateCanvas);
+    }
   };
       
       //Car move event listener

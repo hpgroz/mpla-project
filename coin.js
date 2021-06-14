@@ -1,4 +1,4 @@
-class Coins {
+class Coin {
     constructor(x, y, width, height){ //because we have different obstacles with different positions and widths and heights
         this.x = x;
         this.y = y;
