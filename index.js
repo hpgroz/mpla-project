@@ -159,7 +159,7 @@ function updateCanvas() {
 
   //Diamonds
   currentGame.diamondsFrequency++;
-  if (currentGame.diamondsFrequency % 100 === 1) {
+  if (currentGame.diamondsFrequency % 1000 === 1) {
     const randomDiamondsX = Math.floor(Math.random() * 1100);
     const randomDiamondsY = 0;
     const randomDiamondsWidth = Math.floor(Math.random() * 50) + 20;
