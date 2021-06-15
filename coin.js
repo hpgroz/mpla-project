@@ -10,7 +10,7 @@ class Coin {
    
     draw() {
         const image3 = new Image();
-        image3.src = "./images/coin.png";
+        image3.src = "./images/coin-icon.png";
         context.drawImage(image3, this.x, this.y, this.width, this.height);
     } 
 }

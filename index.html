@@ -10,18 +10,26 @@
     <script src="player.js" defer></script>
     <script src="obstacles.js"defer></script>
     <script src="coin.js"defer></script>
+    <script src="diamonds.js" defer></script>
+    <script src="Oildrops.js" defer></script>
     <script src="game.js" defer></script>
 </head>
 <body>
+    
     <div class="game-intro">
-        <img src="" alt="" class="logo-img"/>
-        <br/>
-        <button id="start-button">StartGame</button>
-        <p>Use the left,right,up, down arrow or A, D, W, S to control the car!</p>
+        <div id="intro"><img src="./images/angola-mapa.png" alt="" class="logo-img" />
+            <br/>
+            <button id="start-button">StartGame</button>
+            <p><strong>Player 1: use the left,right,up, down arrows to control the President!</strong></p>
+            <p><strong>Player 2: use A, D, W, S keys to control the President!</strong></p>
+            
+            
+        </div>        
         <div id ="game-board">
-          <canvas id="canvas" width="1200" height="550"></canvas>
+          <canvas id="canvas" width="1200" height="535"></canvas>
+          <div id="scoreDiv">Score:<span id="score">0</span></div>
         </div>
-        <div id="scoreDiv">Score:<span id="score">0</span></div>
+        
     </div>
 
 </body>

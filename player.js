@@ -1,7 +1,7 @@
 class PR {
     constructor() {  //create constructor with 3 paramenter x y and image then pass a new player object with those parameters
         this.x = 1000;
-        this.y = 500;
+        this.y = 475;
         this.width = 50;
         this.height = 50;
     }
