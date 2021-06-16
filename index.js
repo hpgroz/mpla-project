@@ -8,6 +8,7 @@ document.getElementById("logo-img").onclick = () => {
   document.getElementById("game-board").style.display = "block"; //blocking image..  
   startGame();
 }
+//MAke the mave mover around
 
 let mapOfAngola = new Image;
 mapOfAngola.src = "./images/angola-mapa.png";
@@ -15,36 +16,32 @@ mapOfAngola.onload = function () {
   context.drawImage(mapOfAngola, 100, 100, 600, 268);
 }
 
-function draw(x){
+function draw3(x) {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.drawImage(mapOfAngola, x, 30, 600, 268);
-  x+=3;
-  if (x<(canvas.width-400)){
-      setTimeout(()=>{
-          draw(x); //-> Recursive function
-      }, 30);
+  x += 3;
+  if (x < (canvas.width - 400)) {
+    setTimeout(() => {
+      draw(x); //-> Recursive function
+    }, 30);
   } else {
-      
-          draw2(x); //-> Recursive function
-      
+    draw2(x); //-> Recursive function
   }
-  
+
 }
 
-function draw2(x){
+function draw2(x) {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.drawImage(mapOfAngola, x, 30, 100, 100);
-  x-=3;
-  if (x>0){
-      setTimeout(()=>{
-          draw2(x); //-> Recursive function
-      }, 30);
+  x -= 3;
+  if (x > 0) {
+    setTimeout(() => {
+      draw2(x); //-> Recursive function
+    }, 30);
   } else {
-      
-          draw(x); //-> Recursive function
-      
+    draw(x); //-> Recursive function
   }
-  draw(0);
+  draw3(0);
 }
 
 
@@ -55,7 +52,7 @@ function startGame() {
   currentGame = new Game();
   //Instantiate new players
   let currentPR = new PR(1000);
-  let currentPR2 =new PR(200);
+  let currentPR2 = new PR(200);
   //Assign my new players to my new game
   currentGame.PR = currentPR;
   currentGame.PR.draw();
@@ -262,7 +259,7 @@ function updateCanvas() {
       document.getElementById("game-board").requestFullscreen.display = "none";
       currentGame.coins.splice(index, 1);
     }
-    
+
   })
 
 
@@ -296,7 +293,7 @@ function updateCanvas() {
       // cancelAnimationFrame(currentGame.animationId); //why animation
       currentGame.diamonds.splice(index, 1);
     }
-        //increasing score diamonds for player 2
+    //increasing score diamonds for player 2
 
     if (increaseScoreDiamond2(diamond)) {
 
