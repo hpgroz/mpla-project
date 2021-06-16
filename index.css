@@ -10,7 +10,8 @@
         justify-content: center;
         align-items: center;
         align-content: stretch;
-        background-color: rgba(228, 193, 36, 0.986); 
+        background-color: rgba(228, 193, 36, 0.986);
+        background-size: cover;
 }
 
 #start-button{
@@ -27,10 +28,14 @@
 #game-board{
     border: 1px solid black;
     background-image: url("./images/mussulo.jpg");
-    background-size: cover;    
+    background-position: bottom;
+    
 }
-
+/* 
 canvas {
     background-image: url("");
     background-size: cover;
-}
+} */
+
+
+
