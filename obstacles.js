@@ -10,7 +10,9 @@ class Obstacle {
    
     draw() {
         const image2 = new Image();
-        image2.src = "./images/bomb-icon.png";
+        image2.src = "./images/happy_tree_friends/empty-plastic-wrap.png";
         context.drawImage(image2, this.x, this.y, this.width, this.height);
+        /* context.strokeStyle="black";
+        context.strokeRect(this.x, this.y, this.width, this.height); */
     } 
 }

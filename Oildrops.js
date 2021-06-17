@@ -7,7 +7,9 @@ class Oil {
     }
     draw() {
         const image5 = new Image();
-        image5.src = "./images/oil-drop-icon.png";
+        image5.src = "./images/happy_tree_friends/lolipop-icon.png";
         context.drawImage(image5, this.x, this.y, this.width, this.height);
+        /* context.strokeStyle="black";
+        context.strokeRect(this.x, this.y, this.width, this.height); */
     } 
 }

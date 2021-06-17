@@ -2,15 +2,23 @@ const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
 document.getElementById("game-board").style.display = "none"; //non showing image
+document.querySelector(".gameover").style.display = "none";
 
-document.getElementById("logo-img").onclick = () => {
+  document.getElementById("logo-img").onclick = () => {
   document.getElementById("intro").style.display = "none";
   document.getElementById("game-board").style.display = "block"; //blocking image..  
   startGame();
-}
-//MAke the mave mover around
 
-let mapOfAngola = new Image;
+}
+//Turn this into after gameover screen to make it show the final score
+/* document.getElementById("logo-img").onclick = () => {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("game-board").style.display = "block"; //blocking image..  
+  startGame();
+} */
+//Make the map move around
+
+/* let mapOfAngola = new Image;
 mapOfAngola.src = "./images/angola-mapa.png";
 mapOfAngola.onload = function () {
   context.drawImage(mapOfAngola, 100, 100, 600, 268);
@@ -22,28 +30,28 @@ function draw3(x) {
   x += 3;
   if (x < (canvas.width - 400)) {
     setTimeout(() => {
-      draw(x); //-> Recursive function
+      draw3(x); //-> Recursive function
     }, 30);
   } else {
-    draw2(x); //-> Recursive function
+    draw4(x); //-> Recursive function
   }
 
 }
 
-function draw2(x) {
+function draw4(x) {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.drawImage(mapOfAngola, x, 30, 100, 100);
   x -= 3;
   if (x > 0) {
     setTimeout(() => {
-      draw2(x); //-> Recursive function
+      draw4(x); //-> Recursive function
     }, 30);
   } else {
-    draw(x); //-> Recursive function
+    draw3(x); //-> Recursive function
   }
   draw3(0);
 }
-
+ */
 
 
 let currentGame;
@@ -51,8 +59,8 @@ function startGame() {
   //Instantiate new game
   currentGame = new Game();
   //Instantiate new players
-  let currentPR = new PR(1000);
-  let currentPR2 = new PR(200);
+  let currentPR = new PR(1000, "./images/happy_tree_friends/player1happy.png");
+  let currentPR2 = new PR(200, "./images/happy_tree_friends/player2happy.png");
   //Assign my new players to my new game
   currentGame.PR = currentPR;
   currentGame.PR.draw();
@@ -60,6 +68,7 @@ function startGame() {
   currentGame.PR2.draw();
   cancelAnimationFrame(currentGame.animationId);
   updateCanvas();
+  starGame.play();
 }
 
 //Detect collision player1
@@ -86,10 +95,10 @@ function increaseScoreCoin(coin) {
   );
 } */
 function detectCollision(obstacle) {
-  return !(currentGame.PR.x > obstacle.x + obstacle.width ||
-    currentGame.PR.x + currentGame.PR.width < obstacle.x ||
-    currentGame.PR.y > obstacle.y + obstacle.height ||
-    currentGame.PR.y + obstacle.height < obstacle.y
+  return !(currentGame.PR.x > (obstacle.x-25) + obstacle.width ||
+    currentGame.PR.x + currentGame.PR.width < (obstacle.x+20) ||
+    currentGame.PR.y > (obstacle.y-25) + obstacle.height ||
+    currentGame.PR.y + obstacle.height < (obstacle.y+30)
   );
 }
 
@@ -119,10 +128,10 @@ function increaseScoreOil(oil) {
 //Detect collision player2
 
 function detectCollision2(obstacle) {
-  return !(currentGame.PR2.x > obstacle.x + obstacle.width ||
-    currentGame.PR2.x + currentGame.PR2.width < obstacle.x ||
-    currentGame.PR2.y > obstacle.y + obstacle.height ||
-    currentGame.PR2.y + obstacle.height < obstacle.y
+  return !(currentGame.PR2.x > (obstacle.x-25) + obstacle.width ||
+    currentGame.PR2.x + currentGame.PR2.width < (obstacle.x+20) ||
+    currentGame.PR2.y > (obstacle.y-25) + obstacle.height ||
+    currentGame.PR2.y + obstacle.height < (obstacle.y+30)
   );
 }
 function increaseScoreCoin2(coin) {
@@ -161,8 +170,8 @@ function updateCanvas() {
     const newObstacle = new Obstacle(
       randomObstacleX,
       randomObastacleY,
-      50,
-      50
+      75,
+      75
     );
 
     currentGame.obstacles.push(newObstacle);
@@ -170,7 +179,7 @@ function updateCanvas() {
   }
 
 
-  currentGame.obstacles.forEach((obstacle, index) => {
+    currentGame.obstacles.forEach((obstacle, index) => {
     obstacle.y += 1;
     obstacle.draw();
 
@@ -182,9 +191,15 @@ function updateCanvas() {
       currentGame.score1 = 0;
       currentGame.obstacles = [];
       document.getElementById('score1').innerHTML = 0;
-      document.getElementById("game-board").requestFullscreen.display = "none";
+      document.getElementById("game-board").style.display = "none";
       cancelAnimationFrame(currentGame.animationId);
-      alert('BOOOOMMMMMM! GAME OVER!!!');
+      starGame.pause();
+      dohSound.play();
+      alert('Oh no, Nutty ate an empty plastic wrap and chocked to death!!')  
+
+      document.getElementById("game-board").style.display = "none";
+      document.querySelector(".gameover").style.display = "block";
+      gameOverSound.play();
     };
 
     //obstacle collision player 2
@@ -196,7 +211,13 @@ function updateCanvas() {
       document.getElementById('score2').innerHTML = 0;
       document.getElementById("game-board").requestFullscreen.display = "none";
       cancelAnimationFrame(currentGame.animationId);
-      alert('BOOOOMMMMMM! GAME OVER!!!');
+      starGame.pause();
+      dohSound.play();
+      alert('Oh no, Flippy ate an empty plastic wrap and chocked to death!!');
+      
+      document.getElementById("game-board").style.display = "none";
+      document.querySelector(".gameover").style.display = "block";
+      gameOverSound.play();
     };
 
     /* if (obstacle.y > canvas.height) {
@@ -229,7 +250,7 @@ function updateCanvas() {
       randomCoinsX,
       randomCoinsY,
       50,
-      50
+      50,
     );
 
     currentGame.coins.push(newCoin);
@@ -248,7 +269,9 @@ function updateCanvas() {
 
       document.getElementById('score1').innerHTML = currentGame.score1;
       document.getElementById("game-board").requestFullscreen.display = "none";
+
       currentGame.coins.splice(index, 1);
+      eatSound.play();
     }
     //coin increase score for player 2
     if (increaseScoreCoin2(coin)) {
@@ -258,6 +281,7 @@ function updateCanvas() {
       document.getElementById('score2').innerHTML = currentGame.score2;
       document.getElementById("game-board").requestFullscreen.display = "none";
       currentGame.coins.splice(index, 1);
+      eatSound.play();
     }
 
   })
@@ -292,6 +316,7 @@ function updateCanvas() {
       document.getElementById("game-board").requestFullscreen.display = "none";
       // cancelAnimationFrame(currentGame.animationId); //why animation
       currentGame.diamonds.splice(index, 1);
+      eatSound.play();
     }
     //increasing score diamonds for player 2
 
@@ -303,6 +328,7 @@ function updateCanvas() {
       document.getElementById("game-board").requestFullscreen.display = "none";
       // cancelAnimationFrame(currentGame.animationId); //why animation
       currentGame.diamonds.splice(index, 1);
+      eatSound.play();
     }
   });
 
@@ -334,6 +360,7 @@ function updateCanvas() {
       document.getElementById("game-board").requestFullscreen.display = "none";
       // cancelAnimationFrame(currentGame.animationId); //why animation
       currentGame.oils.splice(index, 1);
+      eatSound.play();
     }
     //increse oil points for player 2
     if (increaseScoreOil2(oil)) {
@@ -344,6 +371,7 @@ function updateCanvas() {
       document.getElementById("game-board").requestFullscreen.display = "none";
       // cancelAnimationFrame(currentGame.animationId); //why animation
       currentGame.oils.splice(index, 1);
+      eatSound.play();
     }
   });
 
@@ -357,9 +385,12 @@ function updateCanvas() {
 //Car move event listener
 document.addEventListener("keydown", (e) => {
   currentGame.PR.movePR(e.key);
-  currentGame.PR2.movePR2(e.key);
+
 });
+
 document.addEventListener("keydown", (e) => {
   currentGame.PR2.movePR2(e.key);
+
 });
+
 

@@ -7,7 +7,9 @@ class Diamond {
     }
     draw() {
         const image4 = new Image();
-        image4.src = "./images/diamond-icon.png";
+        image4.src = "./images/happy_tree_friends/sugarCane-icon.png";
         context.drawImage(image4, this.x, this.y, this.width, this.height);
+        /* context.strokeStyle="black";
+        context.strokeRect(this.x, this.y, this.width, this.height); */
     } 
 }

@@ -1,20 +1,28 @@
 .logo-img{
-    width: 350px;
-    height: 350px;
-    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-content: stretch;
 }
 #intro{
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         align-content: stretch;
-        background-color: rgba(228, 193, 36, 0.986);
+        background-image: url("./images/happy_tree_friends/intro-bkground-img.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
+        height: 770px;
+
+        
 }
 
-#start-button{
+/* #start-button{
     font-size: 30px;
     background-color: red;
     padding: 20px 40px;
@@ -23,13 +31,13 @@
     border-radius: 5px;
     margin-bottom: 20px;
     
-}
+} */
 
-#game-board{
-    border: 1px solid black;
-    background-image: url("./images/mussulo.jpg");
-    background-position: bottom;
-    
+canvas{
+    background-image: url("./images/happy_tree_friends/bkground-image.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 /* 
 canvas {
@@ -46,3 +54,24 @@ canvas {
         align-content: stretch;
 }
 
+.instructions{        
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+
+.gameover{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+    background-image: url(".images/happy_tree_friends/gameOverGif.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

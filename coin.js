@@ -10,7 +10,9 @@ class Coin {
    
     draw() {
         const image3 = new Image();
-        image3.src = "./images/coin-icon.png";
+        image3.src = "./images/happy_tree_friends/candy-icon.png";
         context.drawImage(image3, this.x, this.y, this.width, this.height);
+        /* context.strokeStyle="black";
+        context.strokeRect(this.x, this.y, this.width, this.height); */
     } 
 }

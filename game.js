@@ -1,6 +1,6 @@
 class Game {
     constructor(){
-        this.PR={};
+        this.PR=[];
         this.obstacles=[];
         this.coins=[];
         this.diamonds=[];
