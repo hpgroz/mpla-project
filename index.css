@@ -64,15 +64,16 @@ canvas {
 }
 
 .gameover{
+    margin: 20px 0;
     display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        align-items: center;
-        align-content: stretch;
-        background-image: url("./images/happy_tree_friends/gameOverGif.gif");
-        background-position: top;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 750px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content:center;
+    align-items: center;
+    /* align-content: stretch; */
+    background-image: url("./images/happy_tree_friends/gameOverGif.gif");
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 750px;
 }

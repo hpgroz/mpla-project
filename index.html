@@ -38,6 +38,12 @@
             </div>
             <br />
             <div class="instructions">
+                <p><strong>Navigate the Happy Tree Friends characters collecting candies to increase your score while
+                        avoiding the empty candy wraps.</strong></p>
+                <p><strong>The Player with more points at the end wins! The one who grabs the empty candy wrap loses!</strong></p>
+                <p><strong>Candies are worth 1 point, lolipops increases score by 5 points, while sugar canes boost you score by 10 points!</strong></p>
+                <p><strong></strong></p>
+                
                 <p><strong>Player 1: use the left, right, up, down arrow keys to control Nutty on the righthand
                         side!</strong></p>
                 <p style="color: azure;"><strong>Player 2: use A, D, W, S keyboard keys to control Flippy on the
@@ -46,22 +52,30 @@
 
         </div>
     </div>
-    
-    
-        <div id="game-board">
-            <div class="scoreDiv">
-                <div class="scoreDiv2">Player 2 score:<span id="score2">0</span></div>
-                <div class="scoreDiv1">Player 1 score:<span id="score1">0</span></div>
-            </div>
 
-            <canvas id="canvas" width="1360" height="790"></canvas>
+
+    <div id="game-board">
+        <div class="scoreDiv">
+            <div class="scoreDiv2">Player 2 score:<span id="score2">0</span></div>
+            <div class="scoreDiv1">Player 1 score:<span id="score1">0</span></div>
         </div>
 
-    <div class="gameover" >
-        <h1><strong>GAME OVER!!!</strong></h1>
-        <p><strong>Try again looser!!!</strong></p>
-<!--         <img id="gameover" src="./images/happy_tree_friends/gameOverGif.gif" alt="Game Over Image" height="700" width="1300">
- -->        
+        <canvas id="canvas" width="1360" height="750"></canvas>
+    </div>
+
+    <div class="gameover">
+        <div class="gameover-message" style=" text-align: center; padding-top: 200px;">
+            <h1><strong>GAME OVER!!!</strong></h1>
+        </div>
+
+
+        <div class="gameover-message" style=" text-align: center; ">
+            <p><strong>Try again looser!!!</strong></p>
+        </div>
+
+
+        <!--         <img id="gameover" src="./images/happy_tree_friends/gameOverGif.gif" alt="Game Over Image" height="700" width="1300">
+ -->
     </div>
 
 
@@ -70,4 +84,3 @@
 </body>
 
 </html>
-

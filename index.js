@@ -161,7 +161,7 @@ function updateCanvas() {
   currentGame.PR.draw();
   currentGame.PR2.draw();
   currentGame.obstaclesFrequency++;
-  if (currentGame.obstaclesFrequency % 120 === 1) {//Pace of the obstacles
+  if (currentGame.obstaclesFrequency % 150 === 1) {//Pace of the obstacles
     const randomObstacleX = Math.floor(Math.random() * 1200);
     const randomObastacleY = 0;
     const randomObstacleWidth = Math.floor(Math.random() * 50) + 20;
@@ -180,7 +180,7 @@ function updateCanvas() {
 
 
     currentGame.obstacles.forEach((obstacle, index) => {
-    obstacle.y += 1;
+    obstacle.y += 0.5;
     obstacle.draw();
 
 
@@ -239,7 +239,7 @@ function updateCanvas() {
   //Coins
   currentGame.coinsFrequency++;
 
-  if (currentGame.coinsFrequency % 200 === 1) {
+  if (currentGame.coinsFrequency % 250 === 1) {
     const randomCoinsX = Math.floor(Math.random() * 1100);
     const randomCoinsY = 0;
     const randomCoinsWidth = Math.floor(Math.random() * 50) + 20;
@@ -258,7 +258,7 @@ function updateCanvas() {
 
 
   currentGame.coins.forEach((coin, index) => {
-    coin.y += 1;
+    coin.y += 0.5;
     coin.draw();
 
 
@@ -303,7 +303,7 @@ function updateCanvas() {
     currentGame.diamonds.push(newDiamond);
   }
   currentGame.diamonds.forEach((diamond, index) => {
-    diamond.y += 1;
+    diamond.y += 0.5;
     diamond.draw();
 
 
@@ -348,7 +348,7 @@ function updateCanvas() {
     currentGame.oils.push(newOil);
   }
   currentGame.oils.forEach((oil, index) => {
-    oil.y += 1;
+    oil.y += 0.5;
     oil.draw();
 
     //increasing score oil
