@@ -29,31 +29,33 @@
 
     <div class="game-intro">
         <div id="intro">
-            <h1><strong>CLICK ON NUTTY OR FLIPPY TO START THE GAME!</strong></h1>
+            <div class="instructions">
+                <h5><strong>Navigate the happy tree friends characters collecting candies to increase your score while
+                        avoiding the empty candy wraps.</strong></h5>
+                <h5><strong>The player with more points at the end wins! The one who grabs an empty candy wrap
+                        loses!</strong></h5>
+                <h5><strong>Candies are worth 1 point, lolipops increase score by 5 points, while sugar canes boost your
+                        score by 10 points!</strong></h5>
+                <br />
+                <p><strong>Player 1: use the left, right, up and down arrow keys to control Nutty
+                        on the righthand
+                        side!</strong></p>
+                <p><strong>Player 2: use A, D, W and S keyboard keys to control Flippy on the
+                        lefthand side!</strong></p>
+            </div>
+            <br />
             <div id="logo-img">
                 <img id="flippy" src="./images/happy_tree_friends/player2happy.png" onclick="startGame()"
                     alt="Player 2: Flippy" height="300" width="300" />
                 <img id="nutty" src="./images/happy_tree_friends/player1happy.png" onclick="startGame()"
                     alt="Player 1: Nutty" height="300" width="300" />
             </div>
-            <br />
-            <div class="instructions">
-                <h5><strong>Navigate the happy tree friends characters collecting candies to increase your score while
-                        avoiding the empty candy wraps.</strong></h5>
-                <h5><strong>The player with more points at the end wins! The one who grabs an empty candy wrap loses!</strong></h5>
-                <h5><strong>Candies are worth 1 point, lolipops increase score by 5 points, while sugar canes boost your score by 10 points!</strong></h5>
-                <br />
-                <p  style="color: azure;"><strong>Player 1: use the left, right, up and down arrow keys to control Nutty on the righthand
-                        side!</strong></p>
-                <p style="color: azure;"><strong>Player 2: use A, D, W and S keyboard keys to control Flippy on the
-                        lefthand side!</strong></p>
-            </div>
-
+            <h1 style="color: azure;"><strong>CLICK ON NUTTY OR FLIPPY TO START THE GAME!</strong></h1>
         </div>
     </div>
 
 
-    <div id="game-board">   
+    <div id="game-board">
         <div class="scoreDiv">
             <div class="scoreDiv2">Player 2 score:<span id="score2">0</span></div>
             <div class="scoreDiv1">Player 1 score:<span id="score1">0</span></div>
